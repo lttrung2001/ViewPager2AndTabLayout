@@ -11,10 +11,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class DemoCollectionAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
-    override fun getItemCount(): Int = 20
+    private lateinit var fragment: DemoObjectFragment
+    override fun getItemCount(): Int = 5
 
     override fun createFragment(position: Int): Fragment {
-        val fragment = DemoObjectFragment()
+        fragment = DemoObjectFragment()
         fragment.arguments = Bundle().apply {
             putInt(ARG_OBJECT,position+1)
         }
